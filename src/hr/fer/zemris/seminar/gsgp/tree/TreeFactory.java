@@ -10,17 +10,19 @@ import hr.fer.zemris.seminar.rng.RNG;
 import java.util.ArrayList;
 import java.util.List;
 
-import static hr.fer.zemris.seminar.gsgp.Configuration.MAX_NODE_COUNT;
-
 /**
  * Created by zac on 26.04.17.
  */
 public class TreeFactory<T> {
 
     private INodeFactory<T> nodeFactory;
+    private final int maxDepth;
+    private final int maxNodeCount;
 
-    public TreeFactory(INodeFactory<T> nodeFactory) {
+    public TreeFactory(INodeFactory<T> nodeFactory, int maxDepth, int maxNodeCount) {
         this.nodeFactory = nodeFactory;
+        this.maxDepth = maxDepth;
+        this.maxNodeCount = maxNodeCount;
     }
 
     public Node<T> growTree(int depth, boolean grow) {
@@ -83,7 +85,7 @@ public class TreeFactory<T> {
     }
 
     public void fixNodesCount(Node<T> tree) {
-        while (tree.getNodeCount() > MAX_NODE_COUNT) {
+        while (tree.getNodeCount() > maxNodeCount) {
             cutPartOfBranch(tree);
         }
     }
@@ -144,7 +146,7 @@ public class TreeFactory<T> {
         String[] varNames = new String[]{"a", "b", "c", "d", "e"};
         TerminalNode<Boolean>[] terminals = (TerminalNode<Boolean>[]) TerminalNodeFactory.getTerminals(varNames);
         BoolNodeFactory nodeFactory = new BoolNodeFactory(terminals);
-        TreeFactory<Boolean> treeFactory = new TreeFactory<>(nodeFactory);
+        TreeFactory<Boolean> treeFactory = new TreeFactory<>(nodeFactory, 10, 15);
 
         Node<Boolean> tree = treeFactory.growTree(5, false);
         System.out.println(tree.toString());

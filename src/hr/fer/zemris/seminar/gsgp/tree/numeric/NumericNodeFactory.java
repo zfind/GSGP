@@ -1,8 +1,8 @@
 package hr.fer.zemris.seminar.gsgp.tree.numeric;
 
 import hr.fer.zemris.seminar.gsgp.tree.FunctionNode;
-import hr.fer.zemris.seminar.gsgp.tree.Node;
 import hr.fer.zemris.seminar.gsgp.tree.INodeFactory;
+import hr.fer.zemris.seminar.gsgp.tree.Node;
 import hr.fer.zemris.seminar.gsgp.tree.TerminalNode;
 import hr.fer.zemris.seminar.rng.RNG;
 

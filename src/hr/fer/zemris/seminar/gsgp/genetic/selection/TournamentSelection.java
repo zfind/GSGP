@@ -8,21 +8,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static hr.fer.zemris.seminar.gsgp.Configuration.TOURNAMENT;
-
 /**
  * Created by zac on 28.04.17.
  */
 public class TournamentSelection implements ISelection {
 
-    public TournamentSelection() {
+    private final int tournamentSize;
 
+    public TournamentSelection(int tournamentSize) {
+        this.tournamentSize = tournamentSize;
     }
 
     @Override
     public Solution select(List<Solution> population) {
         Set<Solution> set = new HashSet<>();
-        while (set.size() < TOURNAMENT) {
+        while (set.size() < tournamentSize) {
             set.add(population.get(RNG.nextInt(0, population.size())));
         }
         return Collections.max(set);

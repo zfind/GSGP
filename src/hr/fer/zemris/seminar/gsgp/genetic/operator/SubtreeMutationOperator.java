@@ -9,24 +9,24 @@ import hr.fer.zemris.seminar.rng.RNG;
 
 import java.util.List;
 
-import static hr.fer.zemris.seminar.gsgp.Configuration.MAX_DEPTH;
-
 /**
  * Created by zac on 28.04.17.
  */
 public class SubtreeMutationOperator implements IMutationOperator {
 
     private TreeFactory treeFactory;
+    private final int maxDepth;
 
-    public SubtreeMutationOperator(TreeFactory treeFactory) {
+    public SubtreeMutationOperator(TreeFactory treeFactory, int maxDepth) {
         this.treeFactory = treeFactory;
+        this.maxDepth = maxDepth;
     }
 
     public Solution mutate(Solution s, IFitnessFunction costFunction) {
         Node tree = s.getTree().clone();
         List<Node> branch = treeFactory.pickBranch(tree);
         int picked = RNG.nextInt(0, branch.size());
-        int newBranchMaxDepth = Math.max(1, MAX_DEPTH - picked);
+        int newBranchMaxDepth = Math.max(1, maxDepth - picked);
         int newBranchDepth = RNG.nextInt(0, newBranchMaxDepth);
         Node newBranch = treeFactory.growTree(newBranchDepth, true);
         if (picked == 0) {

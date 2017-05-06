@@ -1,0 +1,51 @@
+---
+dataset:
+    type: boolean
+    file: data/f2.txt
+
+variables:
+    size: 5
+    names:
+        - a
+        - b
+        - c
+        - d
+        - e
+
+fitness:
+    type: BooleanCostFunction
+
+crossover:
+    type: SubtreeCrossoverOperator
+    prob: 0.5
+
+mutation:
+    type: SubtreeMutationOperator
+    prob: 0.5
+
+reproduction:
+    type: ReproductionOperator
+    prob: 0.
+
+selection:
+    type: TournamentSelection
+    tournament_size: 10
+
+population:
+    type:   Solution
+    size:   500
+    initial:
+        generator:  RampedHalfInitializer
+        size:       500
+        min_depth:  2
+        max_depth:  6
+
+tree:
+    max_depth:      10
+    max_node_count: 15
+
+algorithm:
+    type:           GP
+    generations:    200
+    stop_fitness:   0.
+...

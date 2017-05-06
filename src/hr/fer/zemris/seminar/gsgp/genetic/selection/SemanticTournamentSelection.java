@@ -8,21 +8,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static hr.fer.zemris.seminar.gsgp.Configuration.TOURNAMENT;
-
 /**
  * Created by zac on 05.05.17.
  */
 public class SemanticTournamentSelection implements ISemanticSelection {
 
-    public SemanticTournamentSelection() {
+    private final int tournamentSize;
 
+    public SemanticTournamentSelection(int tournamentSize) {
+        this.tournamentSize = tournamentSize;
     }
 
     @Override
-    public  SemanticSolution select(List<SemanticSolution> population) {
+    public SemanticSolution select(List<SemanticSolution> population) {
         Set<SemanticSolution> set = new HashSet<>();
-        while (set.size() < TOURNAMENT) {
+        while (set.size() < tournamentSize) {
             set.add(population.get(RNG.nextInt(0, population.size())));
         }
         return Collections.max(set);

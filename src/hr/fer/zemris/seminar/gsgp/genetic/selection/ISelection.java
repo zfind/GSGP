@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by zac on 05.05.17.
  */
-public interface ISelection  {
+public interface ISelection {
 
     Solution select(List<Solution> population);
 

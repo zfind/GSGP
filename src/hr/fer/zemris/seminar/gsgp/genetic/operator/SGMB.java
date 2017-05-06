@@ -87,7 +87,7 @@ public class SGMB implements ISemanticMutationOperator {
         String[] varNames = new String[]{"a", "b", "c", "d", "e"};
         TerminalNode<Boolean>[] terminals = TerminalNodeFactory.getTerminals(varNames);
         INodeFactory<Boolean> nodeFactory = new BoolNodeFactory(terminals);
-        TreeFactory<Boolean> treeFactory = new TreeFactory<>(nodeFactory);
+        TreeFactory<Boolean> treeFactory = new TreeFactory<>(nodeFactory, 10, 15);
 
         SGMB sgmb = new SGMB(treeFactory);
         Node<Boolean> minterm = sgmb.getRandomMinterm();

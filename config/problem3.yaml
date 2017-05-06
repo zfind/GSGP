@@ -1,0 +1,51 @@
+---
+dataset:
+    type: boolean
+    file: data/f2.txt
+
+variables:
+    size: 5
+    names:
+        - a
+        - b
+        - c
+        - d
+        - e
+
+fitness:
+    type: BooleanCostFunction
+
+crossover:
+    type: SGXB
+    prob: 0.3
+
+mutation:
+    type: SGMB
+    prob: 0.7
+
+reproduction:
+    type: ReproductionOperator
+    prob: 0.
+
+selection:
+    type: SemanticTournamentSelection
+    tournament_size: 10
+
+population:
+    type:   SemanticSolution
+    size:   1000
+    initial:
+        generator:  SemanticRampedHalfInitializer
+        size:       1000
+        min_depth:  2
+        max_depth:  10
+
+tree:
+    max_depth:      10
+    max_node_count: 15
+
+algorithm:
+    type:           GSGP
+    generations:    1000
+    stop_fitness:   0.
+...
