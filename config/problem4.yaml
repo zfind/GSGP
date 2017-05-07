@@ -1,0 +1,47 @@
+---
+dataset:
+    type: numeric
+    file: data/n1.txt
+
+variables:
+    size: 1
+    names:
+        - x
+
+fitness:
+    type: RMSECostFunction
+
+crossover:
+    type: SGXE
+    prob: 0.3
+
+mutation:
+    type: SGMR
+    prob: 0.7
+
+reproduction:
+    type: ReproductionOperator
+    prob: 0.
+
+selection:
+    type: SemanticTournamentSelection
+    tournament_size: 10
+
+population:
+    type:   SemanticSolution
+    size:   1000
+    initial:
+        generator:  SemanticRampedHalfInitializer
+        size:       1000
+        min_depth:  2
+        max_depth:  10
+
+tree:
+    max_depth:      10
+    max_node_count: 15
+
+algorithm:
+    type:           GSGP
+    generations:    3
+    stop_fitness:   0.
+...
