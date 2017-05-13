@@ -24,7 +24,7 @@ mutation:
     prob: 0.7
 
 reproduction:
-    type: ReproductionOperator
+    type: SemanticReproductionOperator
     prob: 0.
 
 selection:

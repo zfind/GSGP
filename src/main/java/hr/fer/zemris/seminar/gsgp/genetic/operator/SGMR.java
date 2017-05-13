@@ -31,20 +31,11 @@ public class SGMR implements ISemanticMutationOperator {
         Node<Double> tr1 = treeFactory.growTree(TR_DEPTH, true);
         Node<Double> tr2 = treeFactory.growTree(TR_DEPTH, true);
 
-        Node<Double> sub = new SubtractionNode(new Node[]{
-                tr1,
-                tr2
-        });
+        Node<Double> sub = new SubtractionNode(tr1, tr2);
 
-        Node<Double> mul = new MultiplicationNode(new Node[]{
-                new NumericConstantNode(ms),
-                sub
-        });
+        Node<Double> mul = new MultiplicationNode(new NumericConstantNode(ms), sub);
 
-        Node<Double> root = new AdditionNode(new Node[]{
-                t,
-                mul
-        });
+        Node<Double> root = new AdditionNode(t, mul);
 
         List<Double> tSemantics = s.getSemantics();
         List<Double> tr1Semantics = costFunction.getSemantics(tr1);

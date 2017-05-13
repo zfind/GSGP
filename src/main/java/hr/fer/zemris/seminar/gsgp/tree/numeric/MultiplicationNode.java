@@ -14,6 +14,11 @@ public class MultiplicationNode extends FunctionNode<Double> {
         childrenOutputVector = new Double[2];
     }
 
+    public MultiplicationNode(Node<Double> child1, Node<Double> child2) {
+        super(NumericFunction.getMultiplicationFunctionInstance(), new Double[2]);
+        this.children = (Node<Double>[]) new Node[]{child1, child2};
+    }
+
     @Override
     public Node<Double> clone() {
         Node<Double>[] cloned = (Node<Double>[]) new Node[2];

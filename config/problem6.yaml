@@ -1,0 +1,62 @@
+---
+dataset:
+    type: numeric
+    file: data/realistic_small_train_numeric.txt
+    test: data/realistic_small_test_numeric.txt
+
+variables:
+    size: 15
+    names:
+        - a
+        - b
+        - c
+        - d
+        - e
+        - f
+        - g
+        - h
+        - i
+        - j
+        - k
+        - l
+        - m
+        - n
+        - o
+
+fitness:
+    type: RMSECostFunction
+
+crossover:
+    type: SubtreeCrossoverOperator
+    prob: 0.1
+
+mutation:
+    type: SubtreeMutationOperator
+    prob: 0.9
+
+reproduction:
+    type: ReproductionOperator
+    prob: 0.
+
+selection:
+    type: TournamentSelection
+    tournament_size: 10
+
+population:
+    type:   Solution
+    size:   1000
+    initial:
+        generator:  RampedHalfInitializer
+        size:       1000
+        min_depth:  2
+        max_depth:  6
+
+tree:
+    max_depth:      10
+    max_node_count: 15
+
+algorithm:
+    type:           GP
+    generations:    100
+    stop_fitness:   -0.01
+...

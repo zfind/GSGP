@@ -12,9 +12,9 @@ public class EphemeralConstantNode extends Node<Double> {
 
     private final double constant;
     private final String name;
-    private DecimalFormat df = new DecimalFormat("#0.00");
 
     public EphemeralConstantNode(double d1, double d2) {
+        DecimalFormat df = new DecimalFormat("#0.00");
         this.constant = RNG.nextDouble(d1, d2);
         this.name = "" + df.format(constant);
     }

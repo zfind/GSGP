@@ -3,8 +3,8 @@ package hr.fer.zemris.seminar.gsgp.genetic;
 /**
  * Created by zac on 07.05.17.
  */
-public interface IOptimizationAlgorithm<T> {
+public interface IOptimizationAlgorithm {
 
-    T run();
+    ISolution run();
 
 }

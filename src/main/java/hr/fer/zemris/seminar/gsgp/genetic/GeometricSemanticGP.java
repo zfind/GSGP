@@ -3,6 +3,7 @@ package hr.fer.zemris.seminar.gsgp.genetic;
 import hr.fer.zemris.seminar.gsgp.genetic.fitness.IFitnessFunction;
 import hr.fer.zemris.seminar.gsgp.genetic.operator.ISemanticCrossoverOperator;
 import hr.fer.zemris.seminar.gsgp.genetic.operator.ISemanticMutationOperator;
+import hr.fer.zemris.seminar.gsgp.genetic.operator.ISemanticReproductionOperator;
 import hr.fer.zemris.seminar.gsgp.genetic.selection.ISemanticSelection;
 import hr.fer.zemris.seminar.rng.RNG;
 
@@ -13,11 +14,11 @@ import java.util.List;
 /**
  * Created by zac on 05.05.17.
  */
-public class GeometricSemanticGP implements IOptimizationAlgorithm<SemanticSolution> {
+public class GeometricSemanticGP implements IOptimizationAlgorithm {
 
     private ISemanticCrossoverOperator crossoverOperator;
     private ISemanticMutationOperator mutationOperator;
-    //    private ISemanticReproduction reproductionOperator;
+    private ISemanticReproductionOperator reproductionOperator;
     private ISemanticSelection selection;
     private IFitnessFunction fitnessFunction;
     private List<SemanticSolution> population;
@@ -31,6 +32,7 @@ public class GeometricSemanticGP implements IOptimizationAlgorithm<SemanticSolut
     public GeometricSemanticGP(IFitnessFunction fitnessFunction,
                                ISemanticCrossoverOperator crossoverOperator,
                                ISemanticMutationOperator mutationOperator,
+                               ISemanticReproductionOperator reproductionOperator,
                                ISemanticSelection selection,
                                List<SemanticSolution> initialPopulation,
                                double crProb,
@@ -41,6 +43,7 @@ public class GeometricSemanticGP implements IOptimizationAlgorithm<SemanticSolut
                                double fitnessThreshold) {
         this.crossoverOperator = crossoverOperator;
         this.mutationOperator = mutationOperator;
+        this.reproductionOperator = reproductionOperator;
         this.selection = selection;
         this.fitnessFunction = fitnessFunction;
         this.population = initialPopulation;

@@ -42,7 +42,14 @@ public class NumericNodeFactory implements INodeFactory<Double> {
     @Override
     public Node<Double> getRandomTermNodeInstance() {
         int choice = RNG.nextInt(0, terminalsCount);
+//        int choice = RNG.nextInt(0, terminalsCount+1+1);
+//        if (choice < terminals.length) {
         return terminals[choice].clone();
+//        } else if (choice == terminals.length) {
+//            return new EphemeralConstantNode(0, 1);
+//        } else {
+//            return new OneConstantNode();
+//        }
     }
 
     @Override

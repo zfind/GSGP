@@ -14,6 +14,11 @@ public class OrNode extends FunctionNode<Boolean> {
         childrenOutputVector = new Boolean[2];
     }
 
+    public OrNode(Node<Boolean> a, Node<Boolean> b) {
+        super(BoolFunction.getOrFunctionInstance(), new Boolean[2]);
+        this.children = (Node<Boolean>[]) new Node[]{a, b};
+    }
+
     @Override
     public Node<Boolean> clone() {
         Node<Boolean>[] cloned = (Node<Boolean>[]) new Node[2];

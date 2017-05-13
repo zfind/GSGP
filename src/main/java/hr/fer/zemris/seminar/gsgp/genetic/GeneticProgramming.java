@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by zac on 28.04.17.
  */
-public class GeneticProgramming implements IOptimizationAlgorithm<Solution> {
+public class GeneticProgramming implements IOptimizationAlgorithm {
 
     private IFitnessFunction costFunction;
     private ICrossoverOperator crossoverOperator;

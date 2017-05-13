@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by zac on 04.05.17.
  */
-public class SemanticSolution<T> implements Comparable<SemanticSolution> {
+public class SemanticSolution<T> implements Comparable<SemanticSolution>, ISolution {
 
     private Node tree;
     private double cost;
@@ -27,6 +27,13 @@ public class SemanticSolution<T> implements Comparable<SemanticSolution> {
         this.cost = costFunction.evaluate(semantics);
         this.fitness = -cost;
         this.semantics = semantics;
+    }
+
+    public SemanticSolution(SemanticSolution s) {
+        this.tree = s.getTree().clone();
+        this.cost = s.getCost();
+        this.fitness = s.getFitness();
+        this.semantics = s.getSemantics();
     }
 
     public List<T> getSemantics() {

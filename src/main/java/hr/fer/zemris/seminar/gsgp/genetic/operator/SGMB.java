@@ -34,18 +34,10 @@ public class SGMB implements ISemanticMutationOperator {
         Node<Boolean> tm = null;
         boolean choice = RNG.nextDouble() >= 0.5;
         if (choice) {
-            tm = new OrNode(new Node[]{
-                    t,
-                    m
-            });
+            tm = new OrNode(t, m);
         } else {
-            Node<Boolean> notM = new NotNode(new Node[]{
-                    m
-            });
-            tm = new AndNode(new Node[]{
-                    t,
-                    notM
-            });
+            Node<Boolean> notM = new NotNode(m);
+            tm = new AndNode(t, notM);
         }
 
         List<Boolean> tSemantics = s.getSemantics();
@@ -71,14 +63,9 @@ public class SGMB implements ISemanticMutationOperator {
         for (int i = 1; i < terminals.length; i++) {
             Node<Boolean> var = terminals[i];
             if (RNG.nextDouble() >= 0.5) {
-                var = new NotNode(new Node[]{
-                        var
-                });
+                var = new NotNode(var);
             }
-            root = new AndNode(new Node[]{
-                    var,
-                    root
-            });
+            root = new AndNode(var, root);
         }
         return root;
     }

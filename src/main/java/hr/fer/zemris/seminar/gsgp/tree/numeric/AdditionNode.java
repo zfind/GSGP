@@ -14,6 +14,11 @@ public class AdditionNode extends FunctionNode<Double> {
         childrenOutputVector = new Double[2];
     }
 
+    public AdditionNode(Node<Double> child1, Node<Double> child2) {
+        super(NumericFunction.getAdditionFunctionInstance(), new Double[2]);
+        this.children = (Node<Double>[]) new Node[]{child1, child2};
+    }
+
     @Override
     public Node<Double> clone() {
         Node<Double>[] cloned = (Node<Double>[]) new Node[2];

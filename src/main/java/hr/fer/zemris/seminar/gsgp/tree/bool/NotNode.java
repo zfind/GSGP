@@ -14,6 +14,11 @@ public class NotNode extends FunctionNode<Boolean> {
         childrenOutputVector = new Boolean[2];
     }
 
+    public NotNode(Node<Boolean> a) {
+        super(BoolFunction.getNotFunctionInstance(), new Boolean[1]);
+        this.children = (Node<Boolean>[]) new Node[]{a};
+    }
+
     @Override
     public Node<Boolean> clone() {
         Node<Boolean>[] cloned = (Node<Boolean>[]) new Node[1];

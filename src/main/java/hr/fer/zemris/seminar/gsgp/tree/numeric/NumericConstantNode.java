@@ -11,9 +11,9 @@ public class NumericConstantNode extends Node<Double> {
 
     private final double constant;
     private final String name;
-    private DecimalFormat df = new DecimalFormat("#0.00");
 
     public NumericConstantNode(double constant) {
+        DecimalFormat df = new DecimalFormat("#0.00");
         this.name = "" + df.format(constant);
         this.constant = constant;
     }

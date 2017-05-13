@@ -17,6 +17,11 @@ public abstract class FunctionNode<T> extends Node<T> {
         this.children = children;
     }
 
+    public FunctionNode(IFunction<T> function, T[] childrenOutputVector) {
+        this.function = function;
+        this.childrenOutputVector = childrenOutputVector;
+    }
+
     @Override
 //    public T evaluate(Class<T> c, T[] input) {}
     public T evaluate(T[] input) {

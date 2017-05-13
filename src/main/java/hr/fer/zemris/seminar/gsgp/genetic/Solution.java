@@ -6,7 +6,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 /**
  * Created by zac on 28.04.17.
  */
-public class Solution implements Comparable<Solution> {
+public class Solution implements Comparable<Solution>, ISolution {
 
     private Node tree;
     private double cost;

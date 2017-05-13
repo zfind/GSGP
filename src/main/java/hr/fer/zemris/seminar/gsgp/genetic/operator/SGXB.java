@@ -30,24 +30,13 @@ public class SGXB implements ISemanticCrossoverOperator {
         Node<Boolean> tr = treeFactory.growTree(TR_DEPTH, true);
         List<Boolean> trEval = function.getSemantics(tr);
 
-        Node<Boolean> b1 = new AndNode((Node<Boolean>[]) new Node[]{
-                t1,
-                tr
-        });
+        Node<Boolean> b1 = new AndNode(t1, tr);
 
-        Node<Boolean> notTr = new NotNode((Node<Boolean>[]) new Node[]{
-                tr
-        });
+        Node<Boolean> notTr = new NotNode(tr);
 
-        Node<Boolean> b2 = new AndNode((Node<Boolean>[]) new Node[]{
-                notTr,
-                t2
-        });
+        Node<Boolean> b2 = new AndNode(notTr, t2);
 
-        Node<Boolean> root = new OrNode((Node<Boolean>[]) new Node[]{
-                b1,
-                b2
-        });
+        Node<Boolean> root = new OrNode(b1, b2);
 
         List<Boolean> p1Semantics = p1.getSemantics();
         List<Boolean> p2Semantics = p2.getSemantics();

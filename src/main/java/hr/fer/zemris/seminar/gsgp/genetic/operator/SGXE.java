@@ -28,31 +28,13 @@ public class SGXE implements ISemanticCrossoverOperator {
         Node<Double> tr = new EphemeralConstantNode(0, 1);
         Double trEval = tr.evaluate(null);
 
-        Node<Double>[] b1Children = (Node<Double>[]) new Node[]{
-                t1,
-                tr
-        };
-        Node<Double> b1 = new MultiplicationNode(b1Children);
+        Node<Double> b1 = new MultiplicationNode(t1, tr);
 
-        Node<Double>[] oneMinusTrChildren = (Node<Double>[]) new Node[]{
-                new OneConstantNode(),
-                tr
-        };
-        Node<Double> oneMinusTr = new SubtractionNode(oneMinusTrChildren);
+        Node<Double> oneMinusTr = new SubtractionNode(new OneConstantNode(), tr);
 
-        Node<Double>[] b2Children = (Node<Double>[]) new Node[]{
-                oneMinusTr,
-                t2
-        };
-        Node<Double> b2 = new MultiplicationNode(b2Children);
+        Node<Double> b2 = new MultiplicationNode(oneMinusTr, t2);
 
-        Node<Double>[] rootChildren = (Node<Double>[]) new Node[]{
-                b1,
-                b2
-        };
-        Node<Double> root = new AdditionNode(rootChildren);
-
-//        treeFactory.fixNodesCount(root);
+        Node<Double> root = new AdditionNode(b1, b2);
 
         List<Double> p1Semantics = p1.getSemantics();
         List<Double> p2Semantics = p2.getSemantics();

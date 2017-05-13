@@ -14,6 +14,11 @@ public class AndNode extends FunctionNode<Boolean> {
         childrenOutputVector = new Boolean[2];
     }
 
+    public AndNode(Node<Boolean> a, Node<Boolean> b) {
+        super(BoolFunction.getAndFunctionInstance(), new Boolean[2]);
+        this.children = (Node<Boolean>[]) new Node[]{a, b};
+    }
+
     @Override
     public Node<Boolean> clone() {
         Node<Boolean>[] cloned = (Node<Boolean>[]) new Node[2];
