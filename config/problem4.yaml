@@ -1,7 +1,13 @@
 ---
+algorithm:
+    type:           GSGP
+    generations:    10
+    stop_fitness:   -1E-4
+
 dataset:
     type: numeric
     file: data/n1.txt
+    test: data/n1.txt
 
 variables:
     size: 1
@@ -28,7 +34,6 @@ selection:
     tournament_size: 10
 
 population:
-    type:   SemanticSolution
     size:   1000
     initial:
         generator:  SemanticRampedHalfInitializer
@@ -39,9 +44,4 @@ population:
 tree:
     max_depth:      10
     max_node_count: 15
-
-algorithm:
-    type:           GSGP
-    generations:    3
-    stop_fitness:   0.
 ...

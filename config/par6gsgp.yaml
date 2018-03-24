@@ -6,28 +6,29 @@ algorithm:
 
 dataset:
     type: boolean
-    file: data/f2.txt
-    test: data/f2.txt
+    file: data/benchmark/par6.in
+    test: data/benchmark/par6.in
 
 variables:
-    size: 5
+    size: 6
     names:
         - a
         - b
         - c
         - d
         - e
+        - f
 
 fitness:
     type: BooleanCostFunction
 
 crossover:
     type: SGXB
-    prob: 0.9
+    prob: 0.7
 
 mutation:
     type: SGMB
-    prob: 0.08
+    prob: 0.28
 
 reproduction:
     type: SemanticReproductionOperator

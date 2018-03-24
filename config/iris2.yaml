@@ -1,0 +1,50 @@
+---
+algorithm:
+    type:           GSGP
+    generations:    100
+    stop_fitness:   -0.01
+
+population:
+    size:   500
+    initial:
+        generator:  SemanticRampedHalfInitializer
+        size:       500
+        min_depth:  2
+        max_depth:  6
+
+dataset:
+    type: numeric
+    file: data/iris.data
+    test: data/iris.data
+
+variables:
+    size: 4
+    names:
+        - a
+        - b
+        - c
+        - d
+
+fitness:
+    type: RMSECostFunction
+
+crossover:
+    type: SGXE
+    prob: 0.1
+
+mutation:
+    type: SGMR
+    prob: 0.9
+
+reproduction:
+    type: SemanticReproductionOperator
+    prob: 0.
+
+selection:
+    type: SemanticTournamentSelection
+    tournament_size: 10
+
+tree:
+    max_depth:      20
+    max_node_count: 50
+...

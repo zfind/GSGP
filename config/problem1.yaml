@@ -1,4 +1,9 @@
 ---
+algorithm:
+    type:           GP
+    generations:    200
+    stop_fitness:   0.
+
 dataset:
     type: boolean
     file: data/f2.txt
@@ -43,9 +48,4 @@ population:
 tree:
     max_depth:      10
     max_node_count: 15
-
-algorithm:
-    type:           GP
-    generations:    200
-    stop_fitness:   0.
 ...

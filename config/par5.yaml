@@ -1,29 +1,33 @@
 ---
 algorithm:
     type:           GP
-    generations:    300
+    generations:    1000
     stop_fitness:   0.
 
 dataset:
-    type: numeric
-    file: data/n1.txt
-    test: data/n1.txt
+    type: boolean
+    file: data/benchmark/par5.in
+    test: data/benchmark/par5.in
 
 variables:
-    size: 1
+    size: 5
     names:
-        - x
+        - a
+        - b
+        - c
+        - d
+        - e
 
 fitness:
-    type: RMSECostFunction
+    type: BooleanCostFunction
 
 crossover:
     type: SubtreeCrossoverOperator
-    prob: 0.5
+    prob: 0.7
 
 mutation:
     type: SubtreeMutationOperator
-    prob: 0.5
+    prob: 0.3
 
 reproduction:
     type: ReproductionOperator
@@ -35,14 +39,14 @@ selection:
 
 population:
     type:   Solution
-    size:   500
+    size:   200
     initial:
         generator:  RampedHalfInitializer
-        size:       500
+        size:       200
         min_depth:  2
         max_depth:  6
 
 tree:
-    max_depth:      10
-    max_node_count: 15
+    max_depth:      20
+    max_node_count: 100
 ...

@@ -1,43 +1,43 @@
 ---
 algorithm:
-    type:           GP
-    generations:    300
-    stop_fitness:   0.
+    type:           GSGP
+    generations:    2000
+    stop_fitness:   -9E-16
 
 dataset:
     type: numeric
-    file: data/n1.txt
-    test: data/n1.txt
+    file: data/benchmark/nguyen10.in
+    test: data/benchmark/nguyen10.in
 
 variables:
-    size: 1
+    size: 2
     names:
         - x
+        - y
 
 fitness:
     type: RMSECostFunction
 
 crossover:
-    type: SubtreeCrossoverOperator
-    prob: 0.5
+    type: SGXE
+    prob: 0.
 
 mutation:
-    type: SubtreeMutationOperator
-    prob: 0.5
+    type: SGMR
+    prob: 1.
 
 reproduction:
-    type: ReproductionOperator
+    type: SemanticReproductionOperator
     prob: 0.
 
 selection:
-    type: TournamentSelection
+    type: SemanticTournamentSelection
     tournament_size: 10
 
 population:
-    type:   Solution
     size:   500
     initial:
-        generator:  RampedHalfInitializer
+        generator:  SemanticRampedHalfInitializer
         size:       500
         min_depth:  2
         max_depth:  6

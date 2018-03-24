@@ -1,21 +1,24 @@
 ---
 algorithm:
     type:           GP
-    generations:    300
+    generations:    1000
     stop_fitness:   0.
 
 dataset:
-    type: numeric
-    file: data/n1.txt
-    test: data/n1.txt
+    type: boolean
+    file: data/benchmark/par4.in
+    test: data/benchmark/par4.in
 
 variables:
-    size: 1
+    size: 4
     names:
-        - x
+        - a
+        - b
+        - c
+        - d
 
 fitness:
-    type: RMSECostFunction
+    type: BooleanCostFunction
 
 crossover:
     type: SubtreeCrossoverOperator
@@ -44,5 +47,5 @@ population:
 
 tree:
     max_depth:      10
-    max_node_count: 15
+    max_node_count: 100
 ...

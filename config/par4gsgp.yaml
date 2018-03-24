@@ -6,17 +6,16 @@ algorithm:
 
 dataset:
     type: boolean
-    file: data/f2.txt
-    test: data/f2.txt
+    file: data/benchmark/par4.in
+    test: data/benchmark/par4.in
 
 variables:
-    size: 5
+    size: 4
     names:
         - a
         - b
         - c
         - d
-        - e
 
 fitness:
     type: BooleanCostFunction

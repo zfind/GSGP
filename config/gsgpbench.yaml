@@ -1,38 +1,29 @@
 ---
+algorithm:
+    type:           GSGP
+    generations:    2000
+    stop_fitness:   -9E-16
+
 dataset:
     type: numeric
-    file: data/realistic_small_train_numeric.txt
-    test: data/realistic_small_test_numeric.txt
+    file: data/benchmark/nguyen6.in
+    test: data/benchmark/nguyen6.in
 
 variables:
-    size: 15
+    size: 1
     names:
-        - a
-        - b
-        - c
-        - d
-        - e
-        - f
-        - g
-        - h
-        - i
-        - j
-        - k
-        - l
-        - m
-        - n
-        - o
+        - x
 
 fitness:
     type: RMSECostFunction
 
 crossover:
     type: SGXE
-    prob: 0.1
+    prob: 0.
 
 mutation:
     type: SGMR
-    prob: 0.9
+    prob: 1.
 
 reproduction:
     type: SemanticReproductionOperator
@@ -43,7 +34,6 @@ selection:
     tournament_size: 10
 
 population:
-    type:   SemanticSolution
     size:   1000
     initial:
         generator:  SemanticRampedHalfInitializer
@@ -54,9 +44,4 @@ population:
 tree:
     max_depth:      10
     max_node_count: 15
-
-algorithm:
-    type:           GSGP
-    generations:    30
-    stop_fitness:   -0.01
 ...

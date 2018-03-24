@@ -1,42 +1,33 @@
 ---
+algorithm:
+    type:           GP
+    generations:    1000
+    stop_fitness:   -2E-16
+
 dataset:
     type: numeric
-    file: data/realistic_small_train_numeric.txt
-    test: data/realistic_small_test_numeric.txt
+    file: data/benchmark/nguyen6.in
+    test: data/benchmark/nguyen6.in
 
 variables:
-    size: 15
+    size: 1
     names:
-        - a
-        - b
-        - c
-        - d
-        - e
-        - f
-        - g
-        - h
-        - i
-        - j
-        - k
-        - l
-        - m
-        - n
-        - o
+        - x
 
 fitness:
     type: RMSECostFunction
 
 crossover:
     type: SubtreeCrossoverOperator
-    prob: 0.1
+    prob: 0.7
 
 mutation:
     type: SubtreeMutationOperator
-    prob: 0.9
+    prob: 0.25
 
 reproduction:
     type: ReproductionOperator
-    prob: 0.
+    prob: 0.05
 
 selection:
     type: TournamentSelection
@@ -53,10 +44,5 @@ population:
 
 tree:
     max_depth:      10
-    max_node_count: 15
-
-algorithm:
-    type:           GP
-    generations:    100
-    stop_fitness:   -0.01
+    max_node_count: 20
 ...
