@@ -272,7 +272,7 @@ public class Configuration {
                     && !(type.equals("SubtreeCrossoverOperator"))) {
                 error("Operator krizanja za GP algoritam mora imati tip: {SubtreeCrossoverOperator}");
             } else if (getAlgorithmType().equals("GSGP")) {
-                if (getDatasetType().equals("boolean") && ! (type.equals("SGXB"))) {
+                if (getDatasetType().equals("boolean") && !(type.equals("SGXB"))) {
                     error("Operator krizanja za boolean dataset i GSGP algoritam mora imati tip: {SGXB}");
                 } else if (getDatasetType().equals("numeric") && !(type.equals("SGXE"))) {
                     error("Operator krizanja za numeric dataset i GSGP algoritam mora imati tip: {SGXE}");
@@ -297,10 +297,10 @@ public class Configuration {
             this.type = (String) mutation.get("type");
             if (getAlgorithmType().equals("GP")
                     && !(type.equals("SubtreeMutationOperator") || type.equals("ShuffleChildrenMutationOperator")
-                            || type.equals("SwapWithSameArityMutationOperator"))) {
+                    || type.equals("SwapWithSameArityMutationOperator"))) {
                 error("Operator mutacije za GP algoritam mora imati tip: {SubtreeMutationOperator, ShuffleChildrenMutationOperator, SwapWithSameArityMutationOperator}");
             } else if (getAlgorithmType().equals("GSGP")) {
-                if (getDatasetType().equals("boolean") && ! (type.equals("SGMB"))) {
+                if (getDatasetType().equals("boolean") && !(type.equals("SGMB"))) {
                     error("Operator mutacije za boolean dataset i GSGP algoritam mora imati tip: {SGMB}");
                 } else if (getDatasetType().equals("numeric") && !(type.equals("SGMR"))) {
                     error("Operator mutacije za numeric dataset i GSGP algoritam mora imati tip: {SGMR}");
@@ -323,9 +323,9 @@ public class Configuration {
         Reproduction(Map<String, Object> config) {
             Map<String, Object> reproduction = (Map<String, Object>) config.get("reproduction");
             this.type = (String) reproduction.get("type");
-            if (getAlgorithmType().equals("GP") && ! (type.equals("ReproductionOperator"))) {
+            if (getAlgorithmType().equals("GP") && !(type.equals("ReproductionOperator"))) {
                 error("Operator reprodukcije za GP algoritam mora imati definiran tip: {ReproductionOperator}");
-            } else if (getAlgorithmType().equals("GSGP")&& !(type.equals("SemanticReproductionOperator"))) {
+            } else if (getAlgorithmType().equals("GSGP") && !(type.equals("SemanticReproductionOperator"))) {
                 error("Operator reprodukcije za GSGP algoritam mora imati definiran tip: {SemanticReproductionOperator");
             }
             if (reproduction.get("prob") == null) {
@@ -346,10 +346,10 @@ public class Configuration {
         Selection(Map<String, Object> config) {
             Map<String, Object> selection = (Map<String, Object>) config.get("selection");
             this.type = (String) selection.get("type");
-            if (type == null ) {
+            if (type == null) {
                 error("Operator selekcije mora imati definiran tip");
             }
-            if (getAlgorithmType().equals("GP") && ! (type.equals("TournamentSelection"))) {
+            if (getAlgorithmType().equals("GP") && !(type.equals("TournamentSelection"))) {
                 error("Operator selekcije za GP algoritam mora imati definiran tip: {TournamentSelection}");
             } else if (getAlgorithmType().equals("GSGP") && !(type.equals("SemanticTournamentSelection"))) {
                 error("Operator selekcije za GSGP algoritam mora imati definiran tip: {SemanticTournamentSelection}");
@@ -362,7 +362,7 @@ public class Configuration {
     }
 
     private class Population {
-//        String type;
+        //        String type;
         int size;
         String initialGeneratorType;
         int initialSize;

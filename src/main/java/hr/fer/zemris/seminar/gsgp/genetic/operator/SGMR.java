@@ -17,8 +17,8 @@ import java.util.List;
  */
 public class SGMR implements ISemanticMutationOperator {
 
-    private static final double ms = 0.5;
-    private static final int TR_DEPTH = 3;
+    private static final double ms = 0.001;
+    private static final int TR_DEPTH = 7;
     private TreeFactory treeFactory;
 
     public SGMR(TreeFactory treeFactory) {

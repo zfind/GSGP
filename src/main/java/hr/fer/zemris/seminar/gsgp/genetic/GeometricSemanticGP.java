@@ -78,7 +78,8 @@ public class GeometricSemanticGP implements IOptimizationAlgorithm {
                     SemanticSolution mutant = mutationOperator.mutate(p1, fitnessFunction);
                     nextPopulation.add(mutant);
                 } else {
-                    ; // reproduction placeholder
+                    SemanticSolution clone = reproductionOperator.reproduce(p1, fitnessFunction);
+                    nextPopulation.add(clone);
                 }
             }
 

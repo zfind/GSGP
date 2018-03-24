@@ -19,7 +19,6 @@ import java.util.List;
  * Created by zac on 05.05.17.
  */
 public class SGMB implements ISemanticMutationOperator {
-    private static final int TR_DEPTH = 3;
     private TreeFactory treeFactory;
 
     public SGMB(TreeFactory treeFactory) {
@@ -44,15 +43,18 @@ public class SGMB implements ISemanticMutationOperator {
         List<Boolean> mSemantics = costFunction.getSemantics(m);
         List<Boolean> semantics = new ArrayList<>();
 
-        for (int i = 0; i < tSemantics.size(); i++) {
-            boolean value;
-            if (choice) {
-                value = tSemantics.get(i) || mSemantics.get(i);
-            } else {
-                value = tSemantics.get(i) && !mSemantics.get(i);
+        if (choice) {
+            for (int i = 0; i < tSemantics.size(); i++) {
+                boolean value = tSemantics.get(i) || mSemantics.get(i);
+                semantics.add(value);
             }
-            semantics.add(value);
+        } else {
+            for (int i = 0; i < tSemantics.size(); i++) {
+                boolean value = tSemantics.get(i) && !mSemantics.get(i);
+                semantics.add(value);
+            }
         }
+
 
         return new SemanticSolution<Boolean>(tm, costFunction, semantics);
     }

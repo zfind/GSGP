@@ -43,8 +43,8 @@ public class SGXB implements ISemanticCrossoverOperator {
         List<Boolean> semantics = new ArrayList<>();
 
         for (int i = 0; i < p1Semantics.size(); i++) {
-            boolean value = (p1Semantics.get(i) && trEval.get(i))
-                    && (!trEval.get(i) && p2Semantics.get(i));
+            boolean value = p1Semantics.get(i) && trEval.get(i)
+                    || !trEval.get(i) && p2Semantics.get(i);
             semantics.add(value);
         }
 

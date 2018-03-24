@@ -16,6 +16,8 @@ import hr.fer.zemris.seminar.gsgp.genetic.selection.SemanticTournamentSelection;
 import hr.fer.zemris.seminar.gsgp.genetic.selection.TournamentSelection;
 import hr.fer.zemris.seminar.gsgp.tree.*;
 import hr.fer.zemris.seminar.gsgp.tree.bool.BoolNodeFactory;
+import hr.fer.zemris.seminar.gsgp.tree.numeric.KornsNodeFactory;
+import hr.fer.zemris.seminar.gsgp.tree.numeric.KozaNodeFactory;
 import hr.fer.zemris.seminar.gsgp.tree.numeric.NumericNodeFactory;
 
 import java.io.File;
@@ -104,7 +106,7 @@ public class Main {
                     mutationOperator = new SGMR(treeFactory);
                 }
 
-                if (config.getReproductionOperatorType().equals("ReproductionOperator")) {
+                if (config.getReproductionOperatorType().equals("SemanticReproductionOperator")) {
                     reproductionOperator = new SemanticReproductionOperator();
                 }
 
@@ -148,7 +150,7 @@ public class Main {
         } else if (config.getDatasetType().equals("numeric")) {
             String[] varNames = config.getVariablesNames();
             TerminalNode<Double>[] terminals = TerminalNodeFactory.getTerminals(varNames);
-            INodeFactory<Double> nodeFactory = new NumericNodeFactory(terminals);
+            INodeFactory<Double> nodeFactory = new KozaNodeFactory(terminals);
             TreeFactory<Double> treeFactory = new TreeFactory<>(nodeFactory,
                     config.getTreeMaxDepth(), config.getTreeMaxNodeCount());
 
@@ -234,7 +236,7 @@ public class Main {
         Node tree = solution.getTree();
 
         System.out.println(solution.getCost() + " " + solution.getTree().getNodeCount());
-        System.out.println(solution.getTree().toString());
+//        System.out.println(solution.getTree().toString());
 
         IFitnessFunction testFitnessFunction = getTestFitnessFunction(config);
         if (testFitnessFunction != null) {

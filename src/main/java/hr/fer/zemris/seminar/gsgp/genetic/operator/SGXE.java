@@ -4,7 +4,9 @@ import hr.fer.zemris.seminar.gsgp.genetic.SemanticSolution;
 import hr.fer.zemris.seminar.gsgp.genetic.fitness.IFitnessFunction;
 import hr.fer.zemris.seminar.gsgp.tree.Node;
 import hr.fer.zemris.seminar.gsgp.tree.TreeFactory;
-import hr.fer.zemris.seminar.gsgp.tree.numeric.*;
+import hr.fer.zemris.seminar.gsgp.tree.numeric.AdditionNode;
+import hr.fer.zemris.seminar.gsgp.tree.numeric.EphemeralConstantNode;
+import hr.fer.zemris.seminar.gsgp.tree.numeric.MultiplicationNode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +32,8 @@ public class SGXE implements ISemanticCrossoverOperator {
 
         Node<Double> b1 = new MultiplicationNode(t1, tr);
 
-        Node<Double> oneMinusTr = new SubtractionNode(new OneConstantNode(), tr);
+//        Node<Double> oneMinusTr = new SubtractionNode(new OneConstantNode(), tr);
+        Node<Double> oneMinusTr = new EphemeralConstantNode(1 - trEval);
 
         Node<Double> b2 = new MultiplicationNode(oneMinusTr, t2);
 
