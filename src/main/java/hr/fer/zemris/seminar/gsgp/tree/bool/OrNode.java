@@ -10,8 +10,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 public class OrNode extends FunctionNode<Boolean> {
 
     public OrNode(Node<Boolean>[] children) {
-        super(BoolFunction.getOrFunctionInstance(), children);
-        childrenOutputVector = new Boolean[2];
+        super(BoolFunction.getOrFunctionInstance(), children, new Boolean[2]);
     }
 
     public OrNode(Node<Boolean> a, Node<Boolean> b) {

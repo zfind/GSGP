@@ -10,8 +10,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 public class AndNode extends FunctionNode<Boolean> {
 
     public AndNode(Node<Boolean>[] children) {
-        super(BoolFunction.getAndFunctionInstance(), children);
-        childrenOutputVector = new Boolean[2];
+        super(BoolFunction.getAndFunctionInstance(), children, new Boolean[2]);
     }
 
     public AndNode(Node<Boolean> a, Node<Boolean> b) {

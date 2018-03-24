@@ -19,6 +19,13 @@ public class EphemeralConstantNode extends Node<Double> {
         this.name = "" + df.format(constant);
     }
 
+    public EphemeralConstantNode(double d1) {
+        DecimalFormat df = new DecimalFormat("#0.00");
+        this.constant = d1;
+        this.name = "" + df.format(constant);
+    }
+
+
     public EphemeralConstantNode(double constant, String name) {
         this.constant = constant;
         this.name = name;

@@ -10,8 +10,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 public class ProtectedDivisionNode extends FunctionNode<Double> {
 
     public ProtectedDivisionNode(Node<Double>[] children) {
-        super(NumericFunction.getDivisionFunctionInstance(), children);
-        childrenOutputVector = new Double[2];
+        super(NumericFunction.getDivisionFunctionInstance(), children, new Double[2]);
     }
 
     public ProtectedDivisionNode(Node<Double> a, Node<Double> b) {

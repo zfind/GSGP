@@ -10,8 +10,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 public class MultiplicationNode extends FunctionNode<Double> {
 
     public MultiplicationNode(Node<Double>[] children) {
-        super(NumericFunction.getMultiplicationFunctionInstance(), children);
-        childrenOutputVector = new Double[2];
+        super(NumericFunction.getMultiplicationFunctionInstance(), children, new Double[2]);
     }
 
     public MultiplicationNode(Node<Double> child1, Node<Double> child2) {

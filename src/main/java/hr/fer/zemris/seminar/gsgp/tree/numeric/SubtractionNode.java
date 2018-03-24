@@ -10,8 +10,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 public class SubtractionNode extends FunctionNode<Double> {
 
     public SubtractionNode(Node<Double>[] children) {
-        super(NumericFunction.getSubtractionFunctionInstance(), children);
-        childrenOutputVector = new Double[2];
+        super(NumericFunction.getSubtractionFunctionInstance(), children, new Double[2]);
     }
 
     public SubtractionNode(Node<Double> a, Node<Double> b) {

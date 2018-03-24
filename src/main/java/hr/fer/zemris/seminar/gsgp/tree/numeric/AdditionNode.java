@@ -10,8 +10,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 public class AdditionNode extends FunctionNode<Double> {
 
     public AdditionNode(Node<Double>[] children) {
-        super(NumericFunction.getAdditionFunctionInstance(), children);
-        childrenOutputVector = new Double[2];
+        super(NumericFunction.getAdditionFunctionInstance(), children, new Double[2]);
     }
 
     public AdditionNode(Node<Double> child1, Node<Double> child2) {

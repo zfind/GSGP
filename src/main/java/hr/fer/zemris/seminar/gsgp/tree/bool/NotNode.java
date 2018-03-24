@@ -10,8 +10,7 @@ import hr.fer.zemris.seminar.gsgp.tree.Node;
 public class NotNode extends FunctionNode<Boolean> {
 
     public NotNode(Node<Boolean>[] children) {
-        super(BoolFunction.getNotFunctionInstance(), children);
-        childrenOutputVector = new Boolean[2];
+        super(BoolFunction.getNotFunctionInstance(), children, new Boolean[1]);
     }
 
     public NotNode(Node<Boolean> a) {

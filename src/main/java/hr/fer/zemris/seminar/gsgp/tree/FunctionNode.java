@@ -17,6 +17,12 @@ public abstract class FunctionNode<T> extends Node<T> {
         this.children = children;
     }
 
+    public FunctionNode(IFunction<T> function, Node<T>[] children, T[] childrenOutputVector) {
+        this.function = function;
+        this.children = children;
+        this.childrenOutputVector = childrenOutputVector;
+    }
+
     public FunctionNode(IFunction<T> function, T[] childrenOutputVector) {
         this.function = function;
         this.childrenOutputVector = childrenOutputVector;
